@@ -47,3 +47,13 @@ alerts:
   enabled: false
   severity: warning
   metricsPort: 8080
+
+scanPodTolerations:
+- key: "foo"
+  operator: "Equal"
+  value: "bar"
+  effect: "NoSchedule"
+- key: "foo"
+  operator: "Equal"
+  value: "yo"
+  effect: "NoExecute"
