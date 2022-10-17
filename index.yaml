@@ -3430,6 +3430,32 @@ entries:
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/provides-gvr: cis.cattle.io.clusterscans/v1
+      catalog.cattle.io/rancher-version: '>= 2.7.0-0 < 2.8.0-0'
+      catalog.cattle.io/release-name: rancher-cis-benchmark
+      catalog.cattle.io/type: cluster-tool
+      catalog.cattle.io/ui-component: rancher-cis-benchmark
+    apiVersion: v1
+    appVersion: v3.0.0
+    created: "2022-10-17T12:32:52.137958088+05:30"
+    description: The cis-operator enables running CIS benchmark security scans on
+      a kubernetes cluster
+    digest: b0ddcfdef747503cb68ae68cc8aea7bd1113619a58fd3af887d13ad23191cf99
+    icon: https://charts.rancher.io/assets/logos/cis-kube-bench.svg
+    keywords:
+    - security
+    name: rancher-cis-benchmark
+    urls:
+    - assets/rancher-cis-benchmark/rancher-cis-benchmark-2.2.0.tgz
+    version: 2.2.0
+  - annotations:
+      catalog.cattle.io/auto-install: rancher-cis-benchmark-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: CIS Benchmark
+      catalog.cattle.io/kube-version: '>= 1.21.0-0 < 1.25.0-0'
+      catalog.cattle.io/namespace: cis-operator-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: cis.cattle.io.clusterscans/v1
       catalog.cattle.io/rancher-version: '>= 2.6.0-0 < 2.7.0-0'
       catalog.cattle.io/release-name: rancher-cis-benchmark
       catalog.cattle.io/type: cluster-tool
@@ -3763,6 +3789,20 @@ entries:
     urls:
     - assets/rancher-cis-benchmark-crd/rancher-cis-benchmark-crd-3.0.0-rc3.tgz
     version: 3.0.0-rc3
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cis-operator-system
+      catalog.cattle.io/release-name: rancher-cis-benchmark-crd
+    apiVersion: v1
+    created: "2022-10-17T12:32:52.150753236+05:30"
+    description: Installs the CRDs for rancher-cis-benchmark.
+    digest: df09cc4fb927009d20a15567cac88b9d7a0ed5bc7076a298572a1bf69744f497
+    name: rancher-cis-benchmark-crd
+    type: application
+    urls:
+    - assets/rancher-cis-benchmark-crd/rancher-cis-benchmark-crd-2.2.0.tgz
+    version: 2.2.0
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/hidden: "true"
