@@ -40,7 +40,7 @@ spec:
         - name: CLUSTER_NAME
           value: '{{ .Values.global.cattle.clusterName }}'
         - name: SCAN_POD_TOLERATIONS
-          value: {{ .Values.scanPodTolerations | toJson | b64enc | quote }}
+          value: {{ .Values.scanPodTolerations | toJson | b64enc }}
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
