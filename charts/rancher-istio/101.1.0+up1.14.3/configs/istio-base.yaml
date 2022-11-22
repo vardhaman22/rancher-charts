@@ -60,8 +60,8 @@ spec:
             port: 15443
             targetPort: 15443
     istiodRemote:
-    - enabled: {{ .Values.istiodRemote.enabled }}
-      name: "istiod-remote"
+      resourceName: "istiod-remote"
+      enabled: {{ .Values.istiodRemote.enabled }}
       k8s:
         nodeSelector: {{ include "linux-node-selector" . | nindent 12 }}
 {{- if .Values.nodeSelector }}
