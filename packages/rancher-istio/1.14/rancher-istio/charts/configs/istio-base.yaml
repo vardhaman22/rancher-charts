@@ -123,4 +123,7 @@ spec:
       excludeNamespaces:
       {{- toYaml .Values.cni.excludeNamespaces | nindent 8 }}
       logLevel: {{ .Values.cni.logLevel }}
+      cniBinDir: {{ .Values.cni.cniBinDir }}
+      cniConfDir: {{ .Values.cni.cniConfDir }}
+      privileged: {{ .Values.cni.privileged }}
     {{- end }}

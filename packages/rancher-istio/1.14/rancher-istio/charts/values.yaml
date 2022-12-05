@@ -34,6 +34,9 @@ cni:
   excludeNamespaces:
   - istio-system
   - kube-system
+  cniBinDir: ""
+  cniConfDir: ""
+  privileged: false
 
 egressGateways:
   enabled: false
