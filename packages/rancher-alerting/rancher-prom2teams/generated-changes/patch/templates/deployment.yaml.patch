@@ -11,11 +11,13 @@
  spec:
    replicas: {{ .Values.replicaCount }}
    selector:
-@@ -16,17 +16,17 @@
+@@ -16,17 +16,19 @@
          app.kubernetes.io/name: {{ include "prom2teams.name" . }}
          app.kubernetes.io/instance: {{ .Release.Name }}
      spec:
++    {{- if .Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy" }}
 +      serviceAccountName: {{ include "prom2teams.fullname" . }}
++    {{- end }}
      {{- with .Values.imagePullSecrets }}
 -      imagePullSecrets:
 -        {{- toYaml . | nindent 8 }}
@@ -33,7 +35,7 @@
            imagePullPolicy: {{ .Values.image.pullPolicy }}
            ports:
              - name: http
-@@ -52,8 +52,7 @@
+@@ -52,8 +54,7 @@
            - name: "{{ $key }}"
              value: "{{ $value }}"
            {{- end }}
@@ -43,7 +45,7 @@
          {{- if .Values.securityContext.enabled }}
            securityContext:
              privileged: false
-@@ -63,18 +62,17 @@
+@@ -63,18 +64,17 @@
                drop:
                - ALL
          {{- end }}
