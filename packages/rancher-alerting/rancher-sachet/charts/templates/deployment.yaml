@@ -29,7 +29,9 @@ spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets: {{ toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy" }}
       serviceAccountName: {{ include "sachet.fullname" . }}
+      {{- end }}
       {{- with .Values.podSecurityContext }}
       securityContext: {{ toYaml .Values.podSecurityContext | nindent 8 }}
       {{- end }}
