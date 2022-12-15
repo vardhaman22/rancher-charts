@@ -3338,7 +3338,7 @@ entries:
       catalog.cattle.io/upstream-version: 100.0.1
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-15T13:21:23.662150083+05:30"
+    created: "2022-12-15T13:30:08.122470178+05:30"
     dependencies:
     - condition: prom2teams.enabled
       name: prom2teams
@@ -3348,7 +3348,7 @@ entries:
       repository: file://./charts/sachet
     description: The manager for third-party webhook receivers used in Prometheus
       Alertmanager
-    digest: edd37a89d67ef4c505777ea5a8769ff7ef47e45ce888af6e9dd90fd0642756cf
+    digest: 74c5909b040b874c5036b3fda2ba7e6ad5e04006d5db58754f061cfd86c97ccc
     icon: https://charts.rancher.io/assets/logos/alerting-drivers.svg
     keywords:
     - monitoring
