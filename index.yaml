@@ -3329,6 +3329,38 @@ entries:
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: Alerting Drivers
+      catalog.cattle.io/kube-version: '>= 1.16.0-0 < 1.26.0-0'
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.7.0-0 < 2.8.0-0'
+      catalog.cattle.io/release-name: rancher-alerting-drivers
+      catalog.cattle.io/type: cluster-tool
+      catalog.cattle.io/upstream-version: 100.0.1
+    apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-15T13:21:23.662150083+05:30"
+    dependencies:
+    - condition: prom2teams.enabled
+      name: prom2teams
+      repository: file://./charts/prom2teams
+    - condition: sachet.enabled
+      name: sachet
+      repository: file://./charts/sachet
+    description: The manager for third-party webhook receivers used in Prometheus
+      Alertmanager
+    digest: edd37a89d67ef4c505777ea5a8769ff7ef47e45ce888af6e9dd90fd0642756cf
+    icon: https://charts.rancher.io/assets/logos/alerting-drivers.svg
+    keywords:
+    - monitoring
+    - alertmanger
+    - webhook
+    name: rancher-alerting-drivers
+    urls:
+    - assets/rancher-alerting-drivers/rancher-alerting-drivers-101.0.1.tgz
+    version: 101.0.1
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: Alerting Drivers
       catalog.cattle.io/kube-version: '>= 1.16.0-0 < 1.25.0-0'
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
