@@ -13,7 +13,7 @@ fullnameOverride: ""
 replicaCount: 1
 
 image:
-  repository: rancher/mirrored-idealista-prom2teams
+  repository: idealista/prom2teams
   tag: 4.2.0
   pullPolicy: IfNotPresent
 

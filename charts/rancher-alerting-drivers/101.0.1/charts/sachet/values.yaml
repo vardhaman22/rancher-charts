@@ -11,7 +11,7 @@ nameOverride: "sachet"
 fullnameOverride: ""
 
 configReloader:
-  repository: rancher/mirrored-jimmidyson-configmap-reload
+  repository: jimmidyson/configmap-reload
   pullPolicy: IfNotPresent
   tag: v0.8.0
 
@@ -24,7 +24,7 @@ sachet:
 replicaCount: 1
 
 image:
-  repository: rancher/mirrored-messagebird-sachet
+  repository: messagebird/sachet
   pullPolicy: IfNotPresent
   tag: 0.3.1
 
