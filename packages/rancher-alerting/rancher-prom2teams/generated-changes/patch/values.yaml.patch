@@ -15,9 +15,8 @@
 +replicaCount: 1
 +
  image:
--  repository: idealista/prom2teams
+   repository: idealista/prom2teams
 -  tag:
-+  repository: rancher/mirrored-idealista-prom2teams
 +  tag: 4.2.0
    pullPolicy: IfNotPresent
  
