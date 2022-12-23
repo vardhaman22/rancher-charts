@@ -108,8 +108,8 @@ spec:
   readOnlyRootFilesystem: false
   volumes:
     - 'secret'
-{{- range $_, $ns := $namespaces }}
 {{- end }}
+{{- range $_, $ns := $namespaces }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
