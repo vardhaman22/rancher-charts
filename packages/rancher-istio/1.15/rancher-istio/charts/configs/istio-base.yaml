@@ -24,4 +24,3 @@ spec:
       enabled: {{ .Values.telemetry.enabled }}
       v2:
         enabled: {{ .Values.telemetry.v2.enabled }}
-    {{- if .Values.cni.enabled }}
