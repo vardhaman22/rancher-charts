@@ -38,14 +38,14 @@ cni:
 egressGateways:
   enabled: false
   type: NodePort
-  replicaCount: 1
+  minReplicas: 1
   podDisruptionBudget:
     minAvailable: 1
 
 ingressGateways:
   enabled: true
   type: NodePort
-  replicaCount: 1
+  minReplicas: 1
   podDisruptionBudget:
     minAvailable: 1
 
@@ -59,7 +59,7 @@ pilot:
 # the distroless tag:
 # tag: 1.15.3
   tag: 1.15.3-distroless
-  replicaCount: 1
+  minReplicas: 1
   podDisruptionBudget:
     minAvailable: 1
 telemetry:

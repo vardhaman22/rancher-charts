@@ -19,7 +19,8 @@ spec:
     - enabled: {{ .Values.egressGateways.enabled }}
       name: istio-egressgateway
       k8s:
-        replicaCount: {{ .Values.egressGateways.replicaCount }}
+        hpaSpec:
+          minReplicas: {{ .Values.egressGateways.minReplicas }}
         podDisruptionBudget:
           minAvailable: {{ .Values.egressGateways.podDisruptionBudget.minAvailable }}
         nodeSelector: {{ include "linux-node-selector" . | nindent 12 }}
@@ -34,7 +35,8 @@ spec:
     - enabled: {{ .Values.ingressGateways.enabled }}
       name: istio-ingressgateway
       k8s:
-        replicaCount: {{ .Values.ingressGateways.replicaCount }}
+        hpaSpec:
+          minReplicas: {{ .Values.ingressGateways.minReplicas }}
         podDisruptionBudget:
           minAvailable: {{ .Values.ingressGateways.podDisruptionBudget.minAvailable }}
         nodeSelector: {{ include "linux-node-selector" . | nindent 12 }}
@@ -70,7 +72,8 @@ spec:
     pilot:
       enabled: {{ .Values.pilot.enabled }}
       k8s:
-        replicaCount: {{ .Values.pilot.replicaCount }}
+        hpaSpec:
+          minReplicas: {{ .Values.pilot.minReplicas }}
         podDisruptionBudget:
           minAvailable: {{ .Values.pilot.podDisruptionBudget.minAvailable }}
         nodeSelector: {{ include "linux-node-selector" . | nindent 12 }}
