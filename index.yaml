@@ -5808,10 +5808,10 @@ entries:
       catalog.cattle.io/ui-component: gatekeeper
     apiVersion: v2
     appVersion: v3.10.0
-    created: "2023-01-27T17:26:15.997458-05:00"
+    created: "2023-02-08T19:57:55.887933794+05:30"
     description: Modifies Open Policy Agent's upstream gatekeeper chart that provides
       policy-based control for cloud native environments
-    digest: 932abb4e8aa3702ba2ffba15bc5564d85a9e7ba0b1ed68d074ab35889d5e61c3
+    digest: efb98f9fbd30ee3f7400bc2877e18f222f8478b292ddfddfde1af9740d3efd76
     home: https://github.com/open-policy-agent/gatekeeper
     icon: https://charts.rancher.io/assets/logos/gatekeeper.svg
     keywords:
@@ -6142,9 +6142,9 @@ entries:
       catalog.cattle.io/namespace: cattle-gatekeeper-system
       catalog.cattle.io/release-name: rancher-gatekeeper-crd
     apiVersion: v1
-    created: "2023-01-27T19:37:41.424303-05:00"
+    created: "2023-02-08T19:57:55.899349571+05:30"
     description: Installs the CRDs for rancher-gatekeeper.
-    digest: 2418c52e443629f46b6bb4ae96ffd68872c1a42fca9153ca3818d43d5cb65d70
+    digest: 6385d5bb951a25cc6aaae333f9c5eabcd9746b2f0141878ced6c031ff87eca39
     name: rancher-gatekeeper-crd
     type: application
     urls:
