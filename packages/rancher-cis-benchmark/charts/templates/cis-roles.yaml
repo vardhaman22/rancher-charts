@@ -11,7 +11,7 @@ rules:
       - clusterscanprofiles
       - clusterscans
       - clusterscanreports
-    verbs: ["create", "update", "delete", "patch","get", "watch", "list"]
+    verbs: ["create", "update", "delete", "patch", "get", "watch", "list"]
   - apiGroups:
       - catalog.cattle.io
     resources: ["apps"]
