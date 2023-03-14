@@ -23,10 +23,11 @@
    ingress:
      additional_labels: {}
      class_name: "nginx"
-@@ -107,3 +110,13 @@
+@@ -107,3 +110,14 @@
    metrics_enabled: true
    metrics_port: 9090
    web_root: ""
++
 +
 +# Common settings used among istio subcharts.
 +global:
@@ -37,3 +38,4 @@
 +    clusterId:
 +  rbac:
 +    pspEnabled: false
+\ No newline at end of file

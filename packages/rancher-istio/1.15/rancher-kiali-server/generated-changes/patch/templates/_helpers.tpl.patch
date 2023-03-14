@@ -1,22 +1,28 @@
 --- charts-original/templates/_helpers.tpl
 +++ charts/templates/_helpers.tpl
-@@ -50,8 +50,15 @@
- Selector labels
+@@ -7,7 +7,11 @@
+ For backwards compatibility, if fullnameOverride is not kiali but deployment.instance_name is kiali,
+ use fullnameOverride, otherwise use deployment.instance_name.
  */}}
- {{- define "kiali-server.selectorLabels" -}}
-+{{- $releaseName := .Release.Name -}}
-+{{- $fullName := include "kiali-server.fullname" . -}}
-+{{- $deployment := (lookup "apps/v1" "Deployment" .Release.Namespace $fullName) -}}
- app.kubernetes.io/name: kiali
--app.kubernetes.io/instance: {{ include "kiali-server.fullname" . }}
+-{{- define "kiali-server.fullname" -}}
 +{{- if (and .Release.IsUpgrade $deployment)}}
 +app.kubernetes.io/instance: {{ (get (($deployment).metadata.labels) "app.kubernetes.io/instance") | default $fullName }}
 +{{- else }}
 +app.kubernetes.io/instance: {{ $fullName }}
 +{{- end }}
- {{- end }}
- 
- {{/*
+ {{- if (and (eq .Values.deployment.instance_name "kiali") (ne .Values.fullnameOverride "kiali")) }}
+   {{- .Values.fullnameOverride | trunc 63 }}
+ {{- else }}
+@@ -40,6 +44,9 @@
+ helm.sh/chart: {{ include "kiali-server.chart" . }}
+ app: kiali
+ {{ include "kiali-server.selectorLabels" . }}
++{{- $releaseName := .Release.Name -}}
++{{- $fullName := include "kiali-server.fullname" . -}}
++{{- $deployment := (lookup "apps/v1" "Deployment" .Release.Namespace $fullName) -}}
+ version: {{ .Values.deployment.version_label | default .Chart.AppVersion | quote }}
+ app.kubernetes.io/version: {{ .Values.deployment.version_label | default .Chart.AppVersion | quote }}
+ app.kubernetes.io/managed-by: {{ .Release.Service }}
 @@ -170,4 +177,27 @@
  {{- else }}
    {{- .Release.Namespace }}
