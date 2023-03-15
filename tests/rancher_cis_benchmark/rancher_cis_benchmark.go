@@ -6,7 +6,9 @@ import (
 	"github.com/aiyengar2/hull/pkg/test"
 	"github.com/aiyengar2/hull/pkg/utils"
 	"github.com/stretchr/testify/assert"
+	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -49,11 +51,32 @@ var suite = test.Suite{
 
 			TemplateOptions: chart.NewTemplateOptions(DefaultReleaseName, DefaultNamespace).Set("tolerations", testTolerations),
 		},
+		{
+			Name: "Set test Affinity",
+
+			TemplateOptions: chart.NewTemplateOptions(DefaultReleaseName, DefaultNamespace).Set("affinity", &corev1.Affinity{
+				NodeAffinity: &corev1.NodeAffinity{
+					RequiredDuringSchedulingIgnoredDuringExecution: &corev1.NodeSelector{
+						NodeSelectorTerms: []corev1.NodeSelectorTerm{
+							{
+								MatchExpressions: []corev1.NodeSelectorRequirement{
+									{
+										Key:      "test",
+										Values:   []string{"test"},
+										Operator: corev1.NodeSelectorOpIn,
+									},
+								},
+							},
+						},
+					},
+				},
+			}),
+		},
 	},
 
 	NamedChecks: []test.NamedCheck{
 		{
-			Name: "Check Pod Tolerations Values",
+			Name: "Check All the values are correctly set in deployment",
 			Covers: []string{
 				".Values.tolerations",
 			},
@@ -76,6 +99,30 @@ var suite = test.Suite{
 							expectedArgs, podTemplateSpec.Spec.Tolerations,
 							"container %s in %T %s does not have correct args",
 							podTemplateSpec.Name, obj, checker.Key(obj),
+						)
+					}
+				}),
+			},
+		},
+		{
+			Name: "Check Pod Affinity Value",
+			Covers: []string{
+				".Values.affinity",
+			},
+
+			Checks: test.Checks{
+				checker.PerResource(func(tc *checker.TestContext, dep *appsv1.Deployment) {
+					expectedAffinity := checker.MustRenderValue[*corev1.Affinity](tc, ".Values.affinity")
+					if expectedAffinity != nil && (*expectedAffinity) == (corev1.Affinity{}) {
+						assert.Nil(tc.T, dep.Spec.Template.Spec.Affinity,
+							"deployment %s does not have correct affinity: expected: %v, got: %v",
+							dep.Name, nil, dep.Spec.Template.Spec.Affinity,
+						)
+					} else {
+						assert.Equal(tc.T,
+							expectedAffinity, dep.Spec.Template.Spec.Affinity,
+							"deployment %s does not have correct affinity: expected: %v, got: %v",
+							dep.Name, expectedAffinity, dep.Spec.Template.Spec.Affinity,
 						)
 					}
 				}),
