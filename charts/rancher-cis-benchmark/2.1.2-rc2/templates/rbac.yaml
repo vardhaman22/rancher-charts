@@ -44,6 +44,21 @@ metadata:
   labels:
     app.kubernetes.io/name: rancher-cis-benchmark
     app.kubernetes.io/instance: release-name
+  name: cis-operator-role
+rules:
+- apiGroups: 
+  - "rbac.authorization.k8s.io"
+  resources:
+  - "clusterrolebindings"
+  verbs:
+  - "delete"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: rancher-cis-benchmark
+    app.kubernetes.io/instance: release-name
   name: cis-scan-ns
 rules:
 - apiGroups:
@@ -134,6 +149,22 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
+  labels:
+    app.kubernetes.io/name: rancher-cis-benchmark
+    app.kubernetes.io/instance: release-name
+  name: cis-operator-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cis-operator-role
+subjects:
+- kind: ServiceAccount
+  name: cis-operator-serviceaccount
+  namespace: {{ template "cis.namespace" . }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
   name: cis-scan-ns
   labels:
     app.kubernetes.io/name: rancher-cis-benchmark
@@ -166,3 +197,13 @@ subjects:
 - kind: ServiceAccount
   name: cis-operator-serviceaccount
   namespace: {{ template "cis.namespace" . }}
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cis-operator-installer
+subjects: []
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
