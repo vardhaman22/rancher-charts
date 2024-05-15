@@ -253,3 +253,4 @@ epinio-crd:
 rancher-provisioning-capi:
   - 103.2.0+up0.0.1
   - 104.0.0+up0.2.0
+  - 104.1.0+up0.2.0
