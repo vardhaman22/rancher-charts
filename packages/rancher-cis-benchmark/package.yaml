@@ -1,12 +1,12 @@
 auto: true
-url: https://github.com/rancher/cis-operator.git
-chartRepoBranch: release/v1.3
+url: https://github.com/vardhaman22/cis-operator.git
+chartRepoBranch: test-eks
 subdirectory: chart
 additionalCharts:
   - workingDir: charts-crd
     upstreamOptions:
-      url: https://github.com/rancher/cis-operator.git
-      chartRepoBranch: release/v1.3
+      url: https://github.com/vardhaman22/cis-operator.git
+      chartRepoBranch: test-eks
       subdirectory: crds
     crdOptions:
       templateDirectory: crd-template
