@@ -12103,17 +12103,17 @@ entries:
       catalog.cattle.io/release-name: rancher-eks-operator
       catalog.cattle.io/scope: management
     apiVersion: v2
-    appVersion: 1.11.0-rc.2
-    created: "2025-02-03T18:49:06.496614474+05:30"
+    appVersion: 1.11.0-rc.3
+    created: "2025-02-21T10:17:07.806999854+05:30"
     description: A Helm chart for provisioning EKS clusters
-    digest: a78b42c62e35d5549069fb46c44394d7bf748320098e6a957efcfa05a29d3a48
+    digest: 40049f693170331282db2dc5c8c6dc20be378f3fc01db58777531a42ec110f3f
     home: https://github.com/rancher/eks-operator
     name: rancher-eks-operator
     sources:
     - https://github.com/rancher/eks-operator
     urls:
-    - assets/rancher-eks-operator/rancher-eks-operator-106.0.0+up1.11.0-rc.2.tgz
-    version: 106.0.0+up1.11.0-rc.2
+    - assets/rancher-eks-operator/rancher-eks-operator-106.0.0+up1.11.0-rc.3.tgz
+    version: 106.0.0+up1.11.0-rc.3
   - annotations:
       catalog.cattle.io/auto-install: rancher-eks-operator-crd=match
       catalog.cattle.io/certified: rancher
