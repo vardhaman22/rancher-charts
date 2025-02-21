@@ -9,4 +9,4 @@ apiVersion: v2
 appVersion: "999"
 description: EKS Operator CustomResourceDefinitions
 name: rancher-eks-operator-crd
-version: "999"
+version: 106.0.0+up1.11.0-rc.3
