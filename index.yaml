@@ -12651,14 +12651,14 @@ entries:
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: rancher-eks-operator-crd
     apiVersion: v2
-    appVersion: 1.11.0-rc.2
-    created: "2025-02-03T18:49:06.501425038+05:30"
+    appVersion: "999"
+    created: "2025-02-21T10:17:10.370513583+05:30"
     description: EKS Operator CustomResourceDefinitions
-    digest: 33dbb9caa2c7b1416a7778638d48b6ea5909563c1d7be48b4ef23dae082f980c
+    digest: 1266677fe80034a48fa0f00c703aa5450ead9c791720abb44585e67da82f8f50
     name: rancher-eks-operator-crd
     urls:
-    - assets/rancher-eks-operator-crd/rancher-eks-operator-crd-106.0.0+up1.11.0-rc.2.tgz
-    version: 106.0.0+up1.11.0-rc.2
+    - assets/rancher-eks-operator-crd/rancher-eks-operator-crd-106.0.0+up1.11.0-rc.3.tgz
+    version: 106.0.0+up1.11.0-rc.3
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/hidden: "true"
