@@ -7,8 +7,4 @@ additionalCharts:
     upstreamOptions:
       url: https://github.com/rancher/eks-operator.git
       chartRepoBranch: release-v2.11
-      subdirectory: charts/eks-operator-crd/templates
-    crdOptions:
-      templateDirectory: crd-template
-      crdDirectory: templates
-      addCRDValidationToMainChart: false
+      subdirectory: charts/eks-operator-crd
